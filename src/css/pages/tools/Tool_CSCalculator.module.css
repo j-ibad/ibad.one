@@ -1,0 +1,53 @@
+.ib-dense .ib-card {margin-bottom: 2em;}
+
+.out_custom_base {
+  width: 1.5em; display: inline; height: fit-content;
+}
+
+.results, .latexInput, .user_input {
+  display: block;
+  height: 1.5em;
+  border-radius: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  line-height: 1.25em;
+  overflow-wrap: break-word;
+}
+
+.results, .latexInput {
+  background: var(--ib-black);
+  text-align: center;
+}
+
+.user_input {
+  font-size: 16px;
+  text-align: center;
+  width: calc(100% - 4.5em);
+  height: 2em;
+  background: var(--ib-black-mild);
+  color: var(--ib-white);
+  border: 2px solid var(--ib-red-soft)
+}
+
+.button-grid{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.button-grid h4{
+  position: absolute; left: 0;
+}
+
+.button-grid button{
+  border-radius: 0.75em;
+  padding: 0.25em 1em;
+}
+
+.button-grid button.active {
+  background: var(--ib-charcoal);
+  color: var(--ib-white);
+}

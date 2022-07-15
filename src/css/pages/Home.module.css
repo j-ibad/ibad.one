@@ -1,0 +1,44 @@
+.ib-body.ib-sparse {padding-top: 0;}
+#intro { 
+	text-align: center; font: 1.8em var(--font-condensed);
+	margin: 0 2.5vw 1.5em; padding: 0;
+	height: calc(100vh - var(--header-size) - 6em);
+	position: relative; 
+}
+#intro p {
+	position: absolute; top: 50%; left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+	margin: 0; width: 100%;
+}
+.ib-grid {z-index: 1; position: relative;}
+
+#about p {padding: 0 3em;}
+
+#article-segment, #tools-segment {background: var(--ib-blue-oxford);}
+#article-segment .contrast,
+#tools-segment .contrast {background: var(--ib-charcoal);}
+
+#software-segment {background: var(--ib-red-soft);}
+#software-segment .contrast {background: inherit;}
+#software h3 {text-align: right;}
+#software > p {text-align: right;}
+#software, #tools, #article {margin-bottom: 1em;}
+
+#software-segment .ib-grid, #tools-segment .ib-grid, #article-segment .ib-grid {
+	margin: 0 -1em 1em; padding: 1em;
+	background: var(--ib-bg-blue-dark);
+}
+#software-segment .segment-link, #tools-segment .segment-link, 
+#article-segment .segment-link, #about .segment-link{
+	margin-top: 2em;
+}
+#software-segment .segment-body, #tools-segment .segment-body, 
+#article-segment .segment-body, #about .segment-body{
+	padding-bottom: 3em;
+}
+
+@media only screen and (orientation: landscape){
+	#intro {margin: 0 7.5vw 1.5em;}
+	#about p {padding: 0 5em;}
+}

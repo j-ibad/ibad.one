@@ -1,0 +1,449 @@
+/**
+* Project: ibad.one
+* Author: Josh Ibad
+*
+* Copyright © 2022 Josh Ibad, creator of ibad.one. All Rights Reserved.
+* 
+* Filename: /src/css/index.css
+* Description: Base website-wide styles for ibad.one
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed&display=swap');
+
+:root {
+  --ib-bg-blue: #0D1B2A; /* Rich Black FOGRA 29 */
+  --ib-bg-blue-dark: #060D1499;
+  --ib-bg-red: #292124; /* Dark Gray w/ hint of Red */
+  
+  --ib-red: #EF233C; /* Imperial Red */
+  --ib-red-mild: #EF233C66;
+  --ib-red-soft: #EF233C44;
+  --ib-red-shade: #EF233C16;
+  --ib-red-unsat: #EA5264;
+  
+  --ib-rust: #BF3100; /* Rust red */
+  --ib-charcoal: #364156; /* Charcoal */
+  --ib-charcoal-mild: #364156BB;
+  --ib-charcoal-soft: #364156AA;
+  
+  --ib-blue-oxford: #1B263B;
+  --ib-blue-bdazzled: #415A77;
+  --ib-blue-shadow: #778DA9;
+  
+  --ib-platinum: #E0E1DD;
+  --ib-white: #DDDDDD;
+  --ib-white-mild: #D6D6D6AA;
+  
+  --ib-black: #222222;
+  --ib-black-mild: #222222AA;
+  
+  --ib-success: #68CCA7AA;
+  --ib-error: #CC688DAA;
+  
+  
+  --font-condensed: 'IBM Plex Sans Condensed', sans-serif;
+  --font-serif: 'IBM Plex Serif', serif;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  
+  
+  --header-size: 3.25em;
+  --footer-size: 3em;
+  --body-max-width: 1100px;
+}
+
+@keyframes widen {0% {max-width: 1em;} 10% {max-width: 1em;} 100% {max-width: 75%;}}
+@keyframes appear {0% {opacity: 0;} 75% {opacity: 0;} 100% {opacity: 1;}}
+@keyframes blinkchar {
+  0% {border-bottom: inherit;} 50% {border-bottom: inherit;}
+  51% {border-bottom: 4px solid var(--ib-white-mild);} 100% {border-bottom: 4px solid var(--ib-white-mild);}
+}
+
+@keyframes fadeIn { 0% {opacity: 0;}  50% {opacity: 0;}	100% {opacity: 1;} }
+
+
+html {scroll-behavior: smooth;}
+body {
+  background-color: var(--ib-bg-blue);
+  color: var(--ib-white); /* White */
+  font: 16px var(--font-sans);
+  margin: 0;
+  min-height: 100vh; position: relative;
+}
+h3, h4, h5, h6 {line-height: 1em; margin: 0;}
+a, a:visited { text-decoration: none; }
+@media only screen and (orientation: landscape){
+  body {font-size: 17px;}
+}
+
+
+/*[===== HEADER STYLES =====] */
+.ib-header { overflow: auto; background: var(--ib-red-shade); }
+.ib-header.ib-sparse {
+  border-bottom: 4px solid var(--ib-red-soft);
+  text-align: center;
+  padding: 2em 0;
+}
+.ib-header.ib-dense {
+  border-bottom: 4px solid var(--ib-red-soft);
+  padding: 1.5em;
+  font-size: 0.8em;
+}
+
+.ib-header h1, .ib-header h2{
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  overflow: hidden; word-break: break-all; height: 2.5ex;
+  padding: 0px 16px; margin: 0;
+}
+.ib-header:not(.no-animate) h1{
+  animation: 4s widen; animation-timing-function: ease-in-out;
+}
+.ib-header:not(.no-animate) h1:not(.company-name)::after{
+  content: '\00a0';
+  display: inline-block; transform: translate(0, -6px);
+  animation: 1.5s infinite blinkchar;
+}
+.ib-header h1.company-name{
+  font-family: var(--font-serif);
+  letter-spacing: 2px;
+}
+
+.ib-header p {margin-bottom: 0;}
+.ib-header p.fade-in {animation: fadeIn 4s ease-in 1;}
+/*[===== END OF HEADER STYLES =====]*/
+
+
+
+
+/*[===== BODY STYLES =====] */
+main {
+  min-height: calc(100vh - var(--header-size) - var(--footer-size));
+  box-sizing: border-box;
+}
+
+.ib-body {counter-reset: section;}
+.ib-body.ib-sparse {padding: 5em 4vw;}
+.ib-body.ib-dense {padding: 3em 4vw;}
+.ib-body b, .ib-card .section-header::before { color: var(--ib-red-unsat); }
+
+.ib-segment {overflow: hidden;}
+.ib-sparse .ib-segment {
+  --ib-split-width: 25%;
+  margin: -2.5em -4vw 2.5em;  padding: 2.5em 4vw; 
+  position: relative;
+}
+
+.ib-segment .segment-body {
+  margin: 0 auto;
+  max-width: var(--body-max-width);
+}
+
+.ib-card {
+  background: var(--ib-charcoal-soft);
+  border-radius: 1em;
+  overflow: auto;
+  padding: 0 2vw; 
+  margin: 0 auto 5em;
+  max-width: var(--body-max-width);
+}
+.ib-sparse .ib-card {margin-bottom: 7em; padding: 0.75em 1.5em;}
+.ib-sparse .ib-segment .ib-card:last-child {margin-bottom: 0em;}
+
+.ib-dense .ib-card {margin-bottom: 5em; padding: 0.75em 1.5em;}
+.ib-card.ib-none {background: none;}
+.ib-card.ib-contrast {background: var(--ib-red-mild);}
+.ib-card h3 {
+  display: inline-block;
+  padding: 0 2px 2px;
+  margin: 1em 0 0 0;
+  border-bottom: 2px solid var(--ib-red-unsat);
+}
+.ib-card .section-header::before {
+  counter-increment: section;
+  content: counter(section) ". ";
+  font-weight: bold;
+}
+.ib-card .section-header:nth-child(-n+9):before {
+  content: "0" counter(section) ": ";
+}
+.ib-card h3 b, .ib-card .section-header::before { 
+  margin: 0; display: inline-block; font-size: 0.8em; 
+}
+.ib-card p {letter-spacing: 0.5px; line-height: 1.5em;}
+a.ib-link-light, a.ib-link-light:visited {color: inherit; font-weight: bold;}
+
+.ib-graphics-right, .ib-graphics-left {
+  width: 30vw; text-align: center;
+  border: 1px inset var(--ib-red-unsat);
+  display: block; margin: 1em auto;
+}
+
+.ib-sparse .ib-segment.split .contrast {
+  background: var(--ib-blue-oxford);
+  position: absolute;  height: 120%; top: -10%; right: -5vh;
+  width: var(--ib-split-width);
+  transform: rotate(6deg);
+}
+.ib-sparse .ib-segment.split .contrast .content {margin: 2em 1em; transform: rotate(-6deg);}
+.ib-sparse .ib-segment.split.right .contrast {transform: rotate(-6deg); left: -5vh;}
+.ib-sparse .ib-segment.split.right .contrast .content { transform: rotate(6deg);}
+.ib-sparse .ib-segment.split.left .ib-card {margin-right: calc(var(--ib-split-width) - 7.5vh);}
+.ib-sparse .ib-segment.split.right .ib-card {margin-left: calc(var(--ib-split-width) - 7.5vh);}
+
+@media only screen and (orientation: landscape){
+  .ib-body.ib-sparse {padding: 5em 8vw;}
+  .ib-sparse .ib-segment {
+    margin-left: -8vw; margin-right: -8vw; 
+    padding-left: 8vw; padding-right: 8vw;
+  }
+  .ib-graphics-right, .ib-graphics-left {
+    margin: 0 0 1em; width: 20vw; min-width: 10em; max-width: 15em;
+  }
+  .ib-graphics-right { float: right; margin-left: 1.5em; }
+  .ib-graphics-left { float: left; margin-right: 1.5em; }
+}
+
+h1 span.label, h2 span.label, h3 span.label, h4 span.label, h5 span.label, h6 span.label {
+  font-weight: normal;
+}
+
+
+/*		--- Tab Styles ---	*/
+.ib-tabs button, .ib-tabs a{
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.ib-tabs button, .ib-tabs a{
+  padding: 1em 1.5em;
+  border: none;
+  outline: none;
+}
+
+.ib-tabs.ib-tabs-ver, /* Mobile view forces vertical to horizontal style */
+.ib-tabs.ib-tabs-hor {
+  overflow: hidden;
+  display: flex; align-items: center;
+}
+.ib-tabs.ib-tabs-ver button, .ib-tabs.ib-tabs-ver a, /* Mobile view forces vertical to horizontal style */
+.ib-tabs.ib-tabs-hor button, .ib-tabs.ib-tabs-hor a {
+  float: left;
+}
+
+.ib-tabs.ib-light button:hover:not(.logo), .ib-tabs.ib-light a:hover:not(.logo)  { background-color: var(--ib-bg-red); }
+.ib-tabs.ib-light button.active:not(.logo), .ib-tabs.ib-light a.active:not(.logo) { 
+  color: var(--ib-red-unsat); font-weight: bold; 
+}
+
+.ib-tabs.ib-solid button:hover:not(.logo), .ib-tabs.ib-solid a:hover:not(.logo)  { 
+  background-color: var(--ib-red); color: #e2e2e2; font-weight: bold;
+}
+.ib-tabs.ib-solid button.active:not(.logo), .ib-tabs.ib-solid a.active:not(.logo) { background-color: var(--ib-red); }
+
+.ib-tab-pane {padding: 0.8em;}
+.ib-tab-pane .tab-content:not(.active) {display: none;}
+.tab-section { margin-bottom: 3em; }
+.tab-section h4.sec-header {display: inline-block;}
+.tab-section h5.sec-right {float: right; line-height: 1.2em;}
+.tab-section h5.sec-subheader {margin-top: 6px;}
+
+@media only screen and (orientation: landscape){
+  .ib-tab-container.ib-tab-container-ver{ display: flex; }
+  .ib-tabs.ib-tabs-ver { display: inline-block; overflow: visible; }
+  .ib-tabs.ib-tabs-ver button, .ib-tabs.ib-tabs-ver a{
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+/*		--- End of Tab Styles ---	*/
+
+
+/*		--- Tag-list Styles ---	*/
+.ib-tag-list-header {font-weight: normal;}
+.ib-tag-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+}
+.ib-tag-list li {
+  background: var(--ib-charcoal);
+  border-radius: 0.75em;
+  padding: 0.5em 16px;
+  cursor: pointer;
+  transition: 0.5s font-size;
+}
+.ib-tag-list li:hover {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+/*		--- End of Tag-list Styles ---	*/
+
+
+/*		--- Grid Styles ---	*/
+.ib-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.ib-grid .grid-entry{
+  background: var(--ib-bg-red);
+  padding: 0.5em;
+  box-sizing: border-box;
+  width: calc(50% - 0.5em);
+  position: relative;
+  padding-bottom: 2.5em;
+}
+.ib-grid .grid-entry .entry-title {text-align: center;}
+.ib-grid .grid-entry .entry-desc{
+  margin: 4px; font: 12px var(--font-condensed);
+}
+.ib-grid .grid-entry .entry-link{
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+  background: var(--ib-red-mild);
+  font-size: 14px;
+  padding: 0.5em 1em;
+  position: absolute; bottom: 0.5em;
+  left: 50%; transform: translate(-50%, 0);
+  transition: 0.33s;
+}
+.ib-grid .grid-entry .entry-link:hover {
+  font-weight: bold;
+  background: var(--ib-red);
+}
+
+@media only screen and (orientation: landscape){
+  .ib-grid:not(.two) .grid-entry {width: calc((100% - 2em) / 3);}
+}
+/*		--- End of Grid Styles ---	*/
+
+
+/*		--- Form Styles ---	*/
+.ib-form { position: relative; }
+.ib-form .form-field { 
+  margin-bottom: 0.5em;
+}
+.ib-form .form-field label.sm{ display: inline-block; width: 5em; }
+.ib-form .form-field input[type="text"],
+.ib-form .form-field input[type="email"],
+.ib-form .form-field textarea {
+  display: inline-block; 
+  padding: 0.5em;
+  border-radius: 0.25em;
+  width: calc(90% - 5em);
+}
+.ib-form button, .ib-form input[type="submit"] {
+  font-size: 14px; text-align: center;
+  color: inherit; background: var(--ib-red-mild);
+  padding: 0.5em 1em;
+  transition: 0.33s;
+  cursor: pointer;
+}
+.ib-form button:hover, .ib-form input[type="submit"]:hover {
+  font-weight: bold; background: var(--ib-red);
+}
+
+.prompt.success, .prompt.error {
+  padding: 1em 0.5em;
+  border-radius: 0.75em;
+}
+.prompt.success {background: var(--ib-success);}
+.prompt.error {background: var(--ib-error);}
+/*		--- End of Form Styles ---	*/
+
+
+/*		--- Misc Body Styles ---	*/
+.center-container { display: block; text-align: center; }
+.right-container { display: block; text-align: right; }
+
+.ib-link-btn, .ib-link-btn:visited {
+  text-decoration: none;
+  text-align: center;
+  color: inherit; background: var(--ib-red-mild);
+  font-size: 14px;
+  padding: 0.5em 1.5em;
+  transition: 0.33s;
+}
+.ib-link-btn:hover {
+  font-weight: bold;
+  background: var(--ib-red);
+}
+ul.ib-bullets li{
+  margin-bottom: 0.75em;
+}
+/*		--- End of Misc Body Styles ---	*/
+
+
+/*[===== END OF BODY STYLES =====] */
+
+
+
+
+/*[===== NAVIGATION STYLES =====] */
+nav {height: var(--header-size);}
+
+.ib-topnav {
+  background-color: var(--ib-bg-blue);
+  border-bottom: 2px solid var(--ib-red);
+}
+
+.ib-topnav ul {
+margin: 0; padding: 0;
+list-style-type:none;
+overflow: hidden;
+width: 100%;
+}
+
+.ib-topnav ul a:not(.logo),  .ib-topnav ul .LoggedIn { text-decoration: none;
+float: left;
+text-align: center;
+padding: 28px 18px 16px;
+font-size: 16px;
+display: block;
+color: white;
+line-height: 1em;
+letter-spacing: 1.5px;
+}
+
+.ib-topnav .logo {letter-spacing: 2px;}
+
+.ib-topnav a {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  font-weight: 400;
+}
+
+.logo {display: flex; align-items: center; }
+.logo img {border-radius: 5px;}
+.logo p {padding-left: 1em; font: 1.4em var(--font-serif); margin: 0;}
+/*[===== END OF NAVIGATION STYLES =====] */
+
+
+
+
+/*[===== FOOTER STYLES =====] */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: var(--footer-size);
+  /* border-top: 1px solid var(--ib-red); */
+  background: var(--ib-bg-blue-dark);
+  
+}
+footer p{
+  padding: 0 1.5em;
+  margin-bottom: 0.5em;
+}
+footer .copyright{ font: 0.8em var(--font-condensed); }
+footer .copyright .subtext{ opacity: 0.8; }
+/*[===== END OF FOOTER STYLES =====]*/
