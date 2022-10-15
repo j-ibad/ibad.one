@@ -1,0 +1,22 @@
+
+/*		--- Tag-list Styles ---	*/
+.ibTagListHeader {font-weight: normal;}
+.ibTagList {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+}
+.ibTagList li {
+  background: var(--ib-charcoal);
+  border-radius: 0.75em;
+  padding: 0.5em 16px;
+  cursor: pointer;
+  transition: 0.5s font-size;
+}
+.ibTagList li:hover {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+/*		--- End of Tag-list Styles ---	*/

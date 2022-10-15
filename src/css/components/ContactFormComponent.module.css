@@ -1,0 +1,29 @@
+#contactUs .ib-form { 
+	width: 100%; margin: auto;
+}
+#contactPrompt {text-align: center;}
+.prompt.success, .prompt.error {
+  padding: 1em 0.5em;
+  border-radius: 0.75em;
+}
+.prompt.success {background: var(--ib-success);}
+.prompt.error {background: var(--ib-error);}
+
+@media only screen and (min-width: 576px) {  /* S */
+	#contactUs .ib-form { width: 90%; }
+}
+
+
+@media only screen and (min-width: 768px) {  /* M */
+	#contactUs .ib-form { width: 80%; }
+}
+
+
+@media only screen and (min-width: 992px) {  /* L */
+	#contactUs .ib-form { width: 75%; }
+}
+
+
+@media only screen and (min-width: 1200px) {  /* XL */
+	#contactUs .ib-form { width: 70%; }
+}

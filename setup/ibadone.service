@@ -1,0 +1,9 @@
+[Unit]
+Description=Ibad one website
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /var/www/ibadone/startup.sh
+
+[Install]
+WantedBy=multi-user.target

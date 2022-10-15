@@ -17,7 +17,7 @@ function isAlpha(iStr){return (iStr>=65 && iStr<=90) || (iStr>=97 && iStr<=122);
 function isDig(iStr){return (iStr>=48 && iStr<=57);}
 
 function charBuffer(iStr){
-	return isDig(iStr) || (iStr == varPrefix.charCodeAt(0)) || (iStr == 46) || isAlpha(iStr);
+	return isDig(iStr) || (iStr === varPrefix.charCodeAt(0)) || (iStr === 46) || isAlpha(iStr);
 }
 
 export default class Parser{
@@ -45,7 +45,7 @@ export default class Parser{
 			}else {
 				this.flushBuffer();
 				
-				if(expr.charAt(i) == '*' && (i < expr.length-1 && expr.charAt(i+1) == '*')){  // Exponentiation
+				if(expr.charAt(i) === '*' && (i < expr.length-1 && expr.charAt(i+1) === '*')){  // Exponentiation
 					this.tree.insert('**');
 					i++;
 				}else{
@@ -71,6 +71,7 @@ export default class Parser{
 							this.tree.insert(res.out.valueOf(), buffLatex);
 							break;
 						}
+						default: break;
 					}
 				}else{  // Retrieve memory, or use default of 0
 					this.tree.insert(this.calc.mem[this.buffer] || 0, buffLatex);

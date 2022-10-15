@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+.codeSnippetContainer {
+  --code-bg-slate-soft: #476464;
+  --code-bg-slate-dark: #2f4f4f88;
+  --code-bg-slate-darker: #2f4f4fbb;
+}
+
+.codeSnippetContainer div.codeSnippet {
+  border: 2px solid var(--code-bg-slate-darker);
+}
+
+.Code{
+  width: 100%;
+  background: darkslategray;
+  border: 2px solid var(--code-bg-slate-darker);
+  font-family: 'Inconsolata', monospace;
+  border-spacing: 0;
+  font-size: 0.85em;
+}
+
+.CodeLine {
+  padding-left: 0.5em;
+  display: block;
+  border-top: none;
+  border-bottom: none;
+  white-space: pre-wrap;
+}
+
+.codeLineNo {
+  background: #00000055;
+  text-align: right;
+  width: 1.2em;
+  padding-right: 8px;
+}
+
+.activeLang {
+  background: var(--code-bg-slate-darker) !important;
+  font-weight: bold !important;
+  border-style: outset outset none outset;
+}
+
+ul.tabHeader {
+  background: var(--code-bg-slate-dark);
+  padding: 4px 12px 0px 12px;
+  box-sizing: border-box;
+}
+
+ul.tabHeader button{
+  padding: 0.75em 1em;
+  margin-right: -2px;
+  border-style: inset inset none inset;
+  border-width: 2px;
+  border-color: #00000044;
+}
+
+
+ul.tabHeader button.tab:hover:not(.non-exit) {
+  background: var(--code-bg-slate-soft);
+}

@@ -1,0 +1,61 @@
+/*		--- Grid Styles ---	*/
+.ibCardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.ibCardGrid .gridEntry{
+  background: var(--ib-gray-dark);
+  padding: 0.5em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid  var(--ib-bg-blue-dark-transparent);
+}
+.ibCardGrid .gridEntry .entryTitle {text-align: center; margin-bottom: 0.5em;}
+.ibCardGrid .gridEntry .entryDesc{
+  margin: 4px; 
+  font: 13px var(--font-condensed);
+  color: var(--ib-white-soft)
+}
+
+.ibCardGrid .gridEntry .entryButtons {
+  margin: 0.5em;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap
+}
+
+.ibCardGrid .gridEntry .entryLink, .ibCardGrid .gridEntry .entryWriteup{
+  text-decoration: none;
+  color: inherit;
+  background: var(--ib-red-mild);
+  font-size: 12px;
+  padding: 0.5em 1em;
+  transition: 0.33s;
+}
+.ibCardGrid .gridEntry .entryWriteup{
+  background: var(--ib-blue-bdazzled);
+}
+.ibCardGrid .gridEntry .entryLink:hover, .ibCardGrid .gridEntry .entryWriteup:hover {
+  font-weight: bold;
+  background: var(--ib-red);
+}
+
+
+@media only screen and (min-width: 576px) {  /* S */
+  .ibCardGrid .gridEntry{
+    width: calc(50% - 0.5em);
+  }
+}
+
+
+@media only screen and (min-width: 992px) {  /* L */
+  .ibCardGrid .gridEntry {width: calc((100% - 2em) / 3);}
+}
+
+
+@media only screen and (min-width: 1200px) {  /* XL */
+}

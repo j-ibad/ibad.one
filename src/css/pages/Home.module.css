@@ -1,7 +1,7 @@
 .ib-body.ib-sparse {padding-top: 0;}
 #intro { 
 	text-align: center; font: 1.8em var(--font-condensed);
-	margin: 0 2.5vw 1.5em; padding: 0;
+	margin: 0 auto 1.5em; 
 	height: calc(100vh - var(--header-size) - 6em);
 	position: relative; 
 }
@@ -9,11 +9,11 @@
 	position: absolute; top: 50%; left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-	margin: 0; width: 100%;
+	margin: 0; 
+	width: calc(0.8 * var(--body-max-width));
+	line-height: 1.6em;
 }
-.ib-grid {z-index: 1; position: relative;}
-
-#about p {padding: 0 3em;}
+.ibCardGrid {z-index: 1; position: relative;}
 
 #article-segment, #tools-segment {background: var(--ib-blue-oxford);}
 #article-segment .contrast,
@@ -25,9 +25,9 @@
 #software > p {text-align: right;}
 #software, #tools, #article {margin-bottom: 1em;}
 
-#software-segment .ib-grid, #tools-segment .ib-grid, #article-segment .ib-grid {
+#software-segment .ibCardGrid, #tools-segment .ibCardGrid, #article-segment .ibCardGrid {
 	margin: 0 -1em 1em; padding: 1em;
-	background: var(--ib-bg-blue-dark);
+	background: var(--ib-bg-blue-dark-transparent);
 }
 #software-segment .segment-link, #tools-segment .segment-link, 
 #article-segment .segment-link, #about .segment-link{
@@ -38,7 +38,25 @@
 	padding-bottom: 3em;
 }
 
-@media only screen and (orientation: landscape){
-	#intro {margin: 0 7.5vw 1.5em;}
+
+@media only screen and (min-width: 576px) {  /* S */
+	#about p {padding: 0 1em;}
+}
+
+
+@media only screen and (min-width: 768px) {  /* M */
+	#about p {padding: 0 3em;}
+}
+
+
+@media only screen and (min-width: 992px) {  /* L */
+	#intro p {
+		width: calc(0.7 * var(--body-max-width))
+	}
 	#about p {padding: 0 5em;}
+}
+
+
+@media only screen and (min-width: 1200px) {  /* L */
+	#about p {padding: 0 7em;}
 }

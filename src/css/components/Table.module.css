@@ -1,0 +1,25 @@
+table.ib-table {
+  text-align: center;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+table.ib-table thead tr {
+  background-color: #ffffff18;
+  border-bottom: 1px solid var(--ib-charcoal);
+}
+
+table.ib-table thead tr th {padding-left: 4px; padding-right: 4px;}
+
+table.ib-table thead tr:last-child {
+  border-bottom: 2px solid var(--ib-white-mild);
+}
+
+table.ib-table col.rowHeader {
+  border-right: 2px solid var(--ib-white-mild);
+}
+
+table.ib-table td, table.ib-table th{
+  border: 1px solid var(--ib-charcoal);
+}
+table.ib-table td {padding-left: 1em; padding-right: 1em;}

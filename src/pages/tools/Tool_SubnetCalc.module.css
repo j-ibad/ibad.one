@@ -1,0 +1,64 @@
+.sectionDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionDiv > div, .sectionDiv > table{
+  margin-top: 1em;
+}
+
+.cidrInput {
+  margin-top: 1.5em;
+}
+
+.page input {
+  background: #FFFFFF11;
+  color: var(--ib-white);
+  margin-bottom: 1em;
+  border-radius: 4px;
+  border-style: solid;
+  font-size: 1em;
+  padding: 0.35em 0.5em;
+}
+
+.ipInputs h4, .maskInputs h4 {
+  text-decoration: underline;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+.ipInputs, .maskInputs {
+  display: inline-block;
+}
+
+.ipInputs label, .maskInputs label {
+  width: 3em;
+  display: inline-block;
+}
+
+.ipInputs input, .maskInputs input {
+  width: 22em;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+table td{
+  text-align: center;
+  border: 2px solid var(--ib-white-mild);
+  padding: 4px 12px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .inputsDiv {
+    flex-direction: row;
+  }
+  .cidrInput {
+    margin-top: 0;
+    margin-right: 1em;
+  }
+  .ipInputs, .maskInputs {
+    margin-right: 2em;
+  }
+}

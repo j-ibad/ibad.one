@@ -2,33 +2,23 @@ import React from 'react';
 
 import styles from '@/css/pages/tools/Tool_CSCalculator.module.css'
 
+import main from '@/js/tools/cs_calculator/main.js'
 
-export default class Tool_CSCalculator extends React.Component {
-	constructor(props){
-		super(props);
-    this.state = {}
+let hasLoaded = false;
+
+export default class Tool_CSCalculator extends React.Component{
+  componentDidMount(){
+    if(hasLoaded){return;}
+    hasLoaded = true;
+    main();
   }
 
-  componentDidMount(){
-    const katexScript = document.createElement('script');
-    katexScript.defer = true;
-    katexScript.async = true;
-    katexScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.js';
-    katexScript.integrity = 'sha384-YFVvRUwgqxkAVN9bmAVLsKilmOKfQLyUx0ZlmDNs0aBUTsvMLnRxE3Km0NrZa0i9';
-    katexScript.crossOrigin = 'anonymous';
-    document.getElementById('mainScript').appendChild(katexScript);
-
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.async = true;
-    script.src = '/js/tools/cs_calculator/main.js';
-    document.getElementById('mainScript').appendChild(script);
+  componentWillUnmount(){
+    hasLoaded = false;
   }
 
   render(){
     return (<div>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css" integrity="sha384-qCEsSYDSH0x5I45nNW4oXemORUZnYFtPy/FqB/OjqxabTMW5HVaaH9USK4fN3goV" crossOrigin="anonymous" />
-
       <div className="ib-header ib-dense no-animate">
         <h1>CS Calculator</h1>
       </div>
@@ -42,7 +32,8 @@ export default class Tool_CSCalculator extends React.Component {
           <h3>Inputs:</h3><br/>
           <h4 id="latexInput" className={styles.latexInput}>&nbsp;</h4>
           <input type="text" id="user_input" className={styles.user_input} autoFocus 
-            placeholder="Input expression here.... Ex: 1 + 0xff - 0o77  * 0b1010"/>
+            placeholder="Input expression here.... Ex: 1 + 0xff - 0o77  * 0b1010"
+            autoComplete="off"/>
           <div className={`button-grid ${styles['button-grid']}`}>
             <h4>Input flags:</h4>
             <button id="btnInNorm" className={`active ${styles.active}`}>Normal</button>
@@ -100,7 +91,6 @@ export default class Tool_CSCalculator extends React.Component {
           </div>
         </div>
       </div>
-      <div id="mainScript"></div>
     </div>
     );
   }

@@ -1,0 +1,88 @@
+.docsPane {
+  --navbar-width: min(100vw, 14em);
+  overflow-x: hidden;
+}
+
+.title {
+  background: var(--ib-red-soft);
+  padding: 0.5em;
+  text-align: center;
+  border-bottom: 1px inset var(--ib-red);
+  /* Enforce h3 styles */
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar {
+  background: var(--ib-blue-oxford);
+  padding-bottom: var(--footer-size);
+  float: left;
+  position: fixed;
+  height: calc(100vh - var(--header-size) - var(--footer-size));
+  width: var(--navbar-width);
+  border-right: 2px solid var(--ib-red-mild);
+  transition: 0.5s transform;
+}
+
+.btnShowTOC {
+  display: inline-block;
+  position: fixed;
+  z-index: 3;
+}
+
+.navbar .navBarBody {
+  overflow-y: auto;
+  height: calc(100vh - var(--header-size) - 2*var(--footer-size));
+}
+
+.navbar .navBarFooter {
+  background: linear-gradient(180deg, var(--ib-blue-oxford) 0%, var(--ib-bg-blue-dark) 100%);
+  height: calc(var(--footer-size) + 1em);
+}
+
+.navbar ol { padding-inline-start: 0.75em; padding-inline-end: 0.75em;  }
+.navbar li{ 
+  display: block;
+  padding-top: .125em;
+  padding-bottom: .125em;
+  font-size: 0.85em;
+}
+.navbar .navCtr{ 
+  margin-right: 0.25em;
+}
+
+.navbar a, a:visited { color: inherit;}
+
+.navbar li:hover{
+  background: var(--ib-charcoal);
+  font-weight: bold;
+}
+
+.content {
+  margin: 0;
+  padding: 0 4vw var(--footer-size);
+  min-height: calc(98vh - var(--header-size) - var(--footer-size));
+  margin-left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.5s margin-left;
+}
+
+
+
+.navbar.show{
+  transform: translateX(0%);
+}
+.navbar:not(.show) {
+  transform: translateX(-100%);
+}
+
+
+@media only screen and (min-width: 992px) {  /* L */
+  .content.show {
+    margin-left: var(--navbar-width);
+    width: calc(100% - var(--navbar-width));
+  }
+}

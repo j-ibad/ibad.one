@@ -54,7 +54,7 @@ export class CalculatorTokenTree{
 	 */
 	evaluateHelp(node){
 		if(!node) return node;
-		if(node.left == null && node.right == null){
+		if(node.left === null && node.right === null){
 			return node.key;
 		}else{
 			switch(node.key){
@@ -85,15 +85,15 @@ export class CalculatorTokenTree{
 	
 	toLaTeX(){return this.root && this.toLaTeXHelper(this.root);}
 	toLaTeXHelper(node){
-		if(node.left == null && node.right == null){
+		if(node.left === null && node.right === null){
 			return node.latex || "";
 		}else{
 			let tmp_left = this.toLaTeXHelper(node.left);
 			let tmp_right = this.toLaTeXHelper(node.right);
 			switch(node.key){
 				case "/":
-					if( (typeof(tmp_left) == "string" && tmp_left.endsWith(")")) ||
-							(typeof(tmp_right) == "string" && tmp_right.startsWith("("))){
+					if( (typeof(tmp_left) === "string" && tmp_left.endsWith(")")) ||
+							(typeof(tmp_right) === "string" && tmp_right.startsWith("("))){
 						return `\\frac{${tmp_left}}{${tmp_right}}`;
 					}else{
 						return `${tmp_left}\\div${tmp_right}`;
@@ -155,7 +155,7 @@ export class CalculatorTokenTree{
 		let sign = (this.isNeg) ? -1 : 1;
 		this.isNeg = false;
 		if(this.latex){return key;}
-		if( typeof(key) == "number") {return key;}
+		if( typeof(key) === "number") {return key;}
 		if(key.includes(".")){ //Is float
 			this.isFloat = true;
 			if(key.startsWith("0x")){
@@ -169,10 +169,10 @@ export class CalculatorTokenTree{
 			}
 		}else{ 
 			if(key.startsWith("0x")){
-				if( (this.inputFlags == InFlag.IEEE754_32) && (key.length==10) ){
+				if( (this.inputFlags === InFlag.IEEE754_32) && (key.length===10) ){
 					/* Interpret as IEEE754 32-bit */
 					return sign*this.evalIEEE754_32(key.substring(2));
-				}else if( (this.inputFlags == InFlag.IEEE754_64) && (key.length==18) ){
+				}else if( (this.inputFlags === InFlag.IEEE754_64) && (key.length===18) ){
 					/* Interpret as IEEE754 64-bit */
 					return sign*this.evalIEEE754_64(key.substring(2));
 				}else{
@@ -180,10 +180,10 @@ export class CalculatorTokenTree{
 				}
 			}else if(key.startsWith('0b')){
 				key = key.slice(2);
-				if( (this.inputFlags == InFlag.IEEE754_32) && (key.length==32) ){
+				if( (this.inputFlags === InFlag.IEEE754_32) && (key.length===32) ){
 					/* Interpret as IEEE754 32-bit */
 					return sign*this.evalIEEE754_32bin(key);
-				}else if( (this.inputFlags == InFlag.IEEE754_64) && (key.length==64) ){
+				}else if( (this.inputFlags === InFlag.IEEE754_64) && (key.length===64) ){
 					/* Interpret as IEEE754 64-bit */
 					return sign*this.evalIEEE754_64bin(key);
 				}else{
@@ -268,9 +268,9 @@ export class CalculatorTokenTree{
 	 *	@param key - Token to enter into the tree
 	 */
 	insert(key, latex=null){
-		if( this.subScope == null ){
-			if(this.root == null){
-				if( key == "(" || key == "[" || key == "{" ){
+		if( this.subScope === null ){
+			if(this.root === null){
+				if( key === "(" || key === "[" || key === "{" ){
 					this.subScope = new CalculatorTokenTree();
 					this.subScope.latex = this.latex;
 				}else{
@@ -284,7 +284,7 @@ export class CalculatorTokenTree{
 			}else{
 				 switch(key){
 					case "(": case "[": case "{":
-						if( this.priority(this.currNode.key) == 0){
+						if( this.priority(this.currNode.key) === 0){
 							this.insert("*");
 						}
 						this.subScope = new CalculatorTokenTree();
@@ -293,7 +293,7 @@ export class CalculatorTokenTree{
 					case "÷": this.insert("/"); break;
 					case "×": this.insert("*"); break;
 					case "-":
-						if(this.priority(this.currNode.key) != 0 ){
+						if(this.priority(this.currNode.key) !== 0 ){
 							this.isNeg = true;
 							break;
 						}
@@ -305,17 +305,17 @@ export class CalculatorTokenTree{
 						while( this.currNode.parent != null && this.priority(key) >= this.priority(this.currNode.parent.key) ){
 							this.currNode = this.currNode.parent;
 						}
-						if(this.currNode.parent == null){
+						if(this.currNode.parent === null){
 							newNode.left = this.currNode;
 							this.root = newNode;
 							this.currNode = newNode;
 						}else{
 							newNode.left = this.currNode;
 							newNode.parent = this.currNode.parent;
-							if(newNode.parent == null){
+							if(newNode.parent === null){
 								this.root = newNode;
 							}else{
-								if(this.currNode.parent.left == this.currNode){
+								if(this.currNode.parent.left === this.currNode){
 									this.currNode.parent.left = newNode;
 								}else{
 									this.currNode.parent.right = newNode;
@@ -331,7 +331,7 @@ export class CalculatorTokenTree{
 						key = this.evalNum(key);
 						var newNode = new Node(key);
 						newNode.parent = this.currNode;
-						if(this.currNode.left == null){
+						if(this.currNode.left === null){
 							this.currNode.left = newNode;
 						}else{
 							this.currNode.right = newNode;
@@ -341,7 +341,7 @@ export class CalculatorTokenTree{
 				}
 			}
 		}else{
-			if( this.subScope.subScope == null && (key == ")" || key == "]" || key == "}") ){
+			if( this.subScope.subScope === null && (key === ")" || key === "]" || key === "}") ){
 				let tmp_term = "";
 				if(this.latex){
 					tmp_term = "(" + this.subScope.toLaTeX() + ")";

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
-import ENV from '@/util/env.js';
+import CardGrid, { Card } from '@/component/CardGrid';
+import { ContactUsLink } from '@/component/ContactFormComponent';
 
 
 export default class ToolsLandingPage extends React.Component {
@@ -27,26 +27,15 @@ export default class ToolsLandingPage extends React.Component {
 
         <div className="ib-card" id="featured">
           <h3>Featured</h3>
-          <div className="ib-grid">
-            <div className="grid-entry">
-              <h4 className="entry-title">CS Calculator</h4>
-              <p className="entry-desc">A calculator geared towards CS calculations. Support binary, hex, variable bidwidth calculations.</p>
-              <Link className="entry-link" to="/cs_calculator">Visit here</Link>
-            </div>
-          </div>
+          <CardGrid>
+            <Card route="/cs_calculator" title="CS Calculator"
+              desc="A calculator geared towards CS calculations. Support binary, hex, variable bidwidth calculations."/>
+            <Card route="/subnet_calculator" title="Subnet Calculator"
+              desc="Calculates Network ID, Host ID, Subnet Size, Usable Address Range, identifies special IPs, and more. Accepts decimal-dot notation (DDN), hex, binary, w/ subnet masks or CIDR."/>
+          </CardGrid>
         </div>
-        {/*}
-        <!--div className="ib-card">
-          <h3>All</h3>
-        </div-->
-        */}
         
-        <div className="ib-card ib-none" id="contact-us" style={{marginTop: '-2em', fontSize: '0.9em'}}>
-          <p> We value your feedback. If you have any suggestions of new functionalities or tools, or find anything wrong with the tools listed above, please let us know here:   </p>
-          <div className="center-container segment-link">
-            <Link className="ib-link-btn" to="/contactUs">Contact Us</Link> 
-          </div>
-        </div>
+        <ContactUsLink />
       </div>
     </React.Fragment>);
   }

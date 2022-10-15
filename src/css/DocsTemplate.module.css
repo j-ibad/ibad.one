@@ -1,0 +1,80 @@
+.docsTemplate {
+  margin: 2em auto;
+  padding: 1.5em min(2em, 5%);
+  max-width: var(--body-max-width);
+  color: var(--ib-white-soft);
+  background: var(--ib-blue-oxford);
+  box-sizing: border-box;
+}
+
+.docsTemplate .title {text-align: center;}
+.docsTemplate .title h3{
+  display: inline-block;
+  padding: .25em 2.5em;
+  border-bottom: 2px solid var(--ib-red);
+}
+
+.docsTemplate p {
+  margin-bottom: 1.5em;
+  word-spacing: 1px;
+}
+
+.docsTemplate h4 {
+  display: inline-block;
+  padding: .25em;
+  padding-right: .5em;
+  border-bottom: 1px solid var(--ib-red);
+}
+.docsTemplate h5 {font-size: 0.95em; margin-block-end: 1em;}
+.docsTemplate h6 {font-size: 0.85em; margin-block-end: 0.75em;}
+
+.docsTemplate .subsection {padding-left: 0.5em;}
+
+.docsTemplate span.code {font-family: 'Inconsolata', monospace;}
+
+.docsTemplate .center {
+  display: block;
+  text-align: center;
+  margin-top: 0.25em; margin-bottom: 0.5em;
+}
+
+.docsTemplate .caption {
+  font-size: 0.8em;
+  display: inline-block;
+  padding: 0 7.5%;
+  margin-bottom: 1.5em;
+}
+
+.docsTemplate .sectionItem {
+  margin: 0.75em;
+}
+.docsTemplate .sectionItem p {
+  margin-top: 0.25em;
+  margin-left: 1em;
+}
+
+.docsTemplate .link {
+  color: inherit
+}
+.docsTemplate .link h5 {
+  display: inline-block;
+  font-size: 1.05em;
+}
+
+
+@media only screen and (min-width: 576px) {  /* S */
+  .docsTemplate .subsection {padding-left: 0.75em;}
+}
+
+
+@media only screen and (min-width: 992px) {  /* L */
+  .docsTemplate .caption {
+    padding: 0 15%;
+  }
+  .docsTemplate .subsection {padding-left: 1em;}
+}
+
+
+@media only screen and (min-width: 1200px) {  /* XL */
+  .docsTemplate .subsection {padding-left: 1.25em;}
+}

@@ -1,0 +1,10 @@
+
+.ibTabPane {padding: 0.8em;}
+.tabSection h4.secHeader {display: inline-block;}
+.tabSection h5.secRight {float: right; line-height: 1.2em;}
+.tabSection h5.secSubheader {margin-top: 6px;}
+
+
+@media only screen and (min-width: 992px) {  /* L */
+  .ibTabContainer.ibTabContainerVer{ display: flex; }
+}

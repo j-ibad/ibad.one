@@ -10,8 +10,8 @@
  *	such as format or format interpretation, as well as other middle logic.
  */
 
-import {CalculatorTokenTree} from "/js/tools/cs_calculator/expression.js";
-import Parser from "/js/tools/cs_calculator/parser.js";
+import {CalculatorTokenTree} from "@/js/tools/cs_calculator/expression.js";
+import Parser from "@/js/tools/cs_calculator/parser.js";
 
 export const OutFlag = {dec: 0, bin: 1, hex: 2, custom: 3}
 export const OutSpecFlag = {norm: 0, IEEE754_32: 1, IEEE754_64: 2}

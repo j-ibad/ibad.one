@@ -1,9 +1,0 @@
-#contact-us .ib-form { 
-	width: 100%; margin: auto;
-	margin-top: 1em;
-}
-#contact-prompt {text-align: center;}
-
-@media only screen and (orientation: landscape){
-	#contact-us .ib-form { width: 75%; }
-}

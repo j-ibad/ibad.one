@@ -3,17 +3,31 @@
 	"tasks": [
 		{
 			"type": "npm",
-			"script": "start",
+			"script": "dev-win",
 			"problemMatcher": [],
 			"label": "npm: start",
-			"detail": "react-scripts start",
-            "presentation": {
-                "reveal": "always",
-                "panel": "new"
-            },
-            "runOptions": {
-                "runOn": "folderOpen",
-            }
+			"detail": "npm run dev-win",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"runOptions": {
+				"runOn": "folderOpen"
+			}
+		},
+		{
+			"type": "npm",
+			"script": "dev-win",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "npm run dev-win",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"runOptions": {
+				"runOn": "folderOpen"
+			}
 		}
 	]
 }

@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 import ENV from '@/util/env.js';
+import CardGrid, { Card } from '@/component/CardGrid';
+import { ContactUsLink } from '@/component/ContactFormComponent';
 
 
 export default class SoftwareLandingPage extends React.Component {
@@ -28,33 +29,16 @@ export default class SoftwareLandingPage extends React.Component {
 
         <div className="ib-card" id="featured">
           <h3>Featured</h3>
-          <div className="ib-grid">
-            <div className="grid-entry">
-              <h4 className="entry-title">ibad.one</h4>
-              <p className="entry-desc">This website. Hosts this portfolio as well as various valuable services, tools, and software products. Work in progress</p>
-              <a className="entry-link" href={`${ENV.url.prot}://${ENV.url.root}`}>Visit here</a>
-            </div>
-            <div className="grid-entry">
-              <h4 className="entry-title">HavenChat</h4>
-              <p className="entry-desc">A Secure Live Chatting web app. Uses AES-256-CBC w/ secure key distribution via RSA, and RSA / DSA digital signatures. Built in React, Express, NodeJS, & MySQL.
-              </p>
-              <a className="entry-link" href="https://havenchat.ibad.one">Visit here</a>
-            </div>
-          </div>
+          <CardGrid>
+            <Card title="ibad.one" link={`${ENV.url.prot}://${ENV.url.root}`}
+              desc="This website. Hosts this portfolio as well as various valuable services, tools, and software products. Work in progress"/>
+            <Card title="HavenChat" link="https://havenchat.ibad.one" writeupLink="https://ibad.one/pdf/havenchat_project_report.pdf"
+              desc="A Secure Live Chatting web app. Uses AES-256-CBC w/ secure key distribution via RSA, and RSA / DSA digital signatures. Built in React, Express, NodeJS, & MySQL."/>
+          </CardGrid>
         </div>
-        {/*
-        <!--div className="ib-card">
-          <h3>All</h3>
-        </div-->
-        */}
         
         
-        <div className="ib-card ib-none" id="contact-us" style={{marginTop: '-2em', fontSize: '0.9em'}}>
-          <p> We value your feedback. If you have any suggestions of new functionalities or tools, or find anything wrong with the tools listed above, please let us know here:   </p>
-          <div className="center-container segment-link">
-            <Link className="ib-link-btn" to="/contactUs">Contact Us</Link> 
-          </div>
-        </div>
+        <ContactUsLink />
       </div>
     </React.Fragment>);
   }

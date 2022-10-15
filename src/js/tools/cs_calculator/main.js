@@ -9,9 +9,8 @@
  * 	listeners for inputs and buttons, as well as for interfacing with the Calculator
  *	parser for expression parsing and evaluation.
  */
-
-import CS_Calculator, {OutFlag}  from '/js/tools/cs_calculator/cs_calculator.js';
-
+import katex from 'katex';
+import CS_Calculator, {OutFlag}  from '@/js/tools/cs_calculator/cs_calculator.js';
 
 const CalcInstance = new CS_Calculator();
 
@@ -39,7 +38,7 @@ function pushHistory(){
 		let user_input = inputField?.value || "";
 		if(user_input.length > 0){
 			user_input = user_input.replace(/\s/g,'');
-			let output = new Number(document.getElementById("results").innerHTML || 0);
+			let output = Number(document.getElementById("results").innerHTML || 0);
 			CalcInstance.pushHistory(user_input, output);
 			inputField.value = "";
 		}
@@ -72,7 +71,7 @@ function toggleOutFlag(flag){
 	});
 	
 	document.getElementById(outButtonIDs[flag]).classList.add('active');
-	tmp_specOps.style.display = (flag == OutFlag.dec || flag == OutFlag.custom) ? 'none' : 'block'
+	tmp_specOps.style.display = (flag === OutFlag.dec || flag === OutFlag.custom) ? 'none' : 'block'
 	CalcInstance.config.outputFlags = flag;
 	evaluateInput();
 }
@@ -108,9 +107,8 @@ function toggleInFlag(flag){
 }
 
 
-window.onload = (e)=>{
-	console.log('HI')
-
+export default function main(){
+	document.getElementById("results").innerHTML = '0';
 	document.getElementById("user_input").addEventListener("keyup", function(event){
 		switch(event.keyCode){
 			case 13:  // Enter button -- store in history
