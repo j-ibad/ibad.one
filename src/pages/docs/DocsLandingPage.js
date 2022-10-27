@@ -27,7 +27,7 @@ export default class SoftwareLandingPage extends React.Component {
           <CardGrid>
             <Card route="/ds/1/" title="Data Structures I"
             desc="Learn about the various data structures such as lists, trees, and hash maps, as well as some algorithms based around these data structures. A work in progress."/>
-            <Card route="/swe/oop" title="Object Oriented Programming"
+            <Card route="/swe/oop" title="A Primer on OOP"
               desc="Learn the concepts behind the Object Oriented Programming paradigm, as well as SOLID Principles and UML Class Diagrams."/>
             <Card route="/Finance/links" title="Finance Links"
               desc="Collection of links for Finance. From links to watch the equity markets, to fixed income securities, as well as derivitives markets. To be updated as we increase our Finance activities."/>
