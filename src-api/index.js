@@ -30,6 +30,7 @@ const require = createRequire(import.meta.url)
 const APP_CONFIG = require('#config/app.json');
 
 const IS_PROD = (process.env['NODE_ENV'] || '').trim() !== 'development';
+console.log(`Environment: '${(process.env['NODE_ENV'] || '').trim()}'`)
 const PORT_HTTP = APP_CONFIG.app.http[(IS_PROD) ? "port" : "port_test"];
 
 
@@ -88,12 +89,12 @@ app.use('/api/mailbox', MailboxRouter);
 
 //	Static files
 ['static', 'img', 'pdf'].forEach((dir)=>{
-	app.use(`/${dir}`, express.static(`build/${dir}`));
+	app.use(`/${dir}`, express.static(`dist/${dir}`));
 })
 
 const staticRoutes = { };
 ['favicon.ico', 'logo192.png', 'logo512.png', 'manifest.json', 'robots.txt', 'index.html'].forEach((file)=>{
-	staticRoutes[`/${file}`] = path.resolve(`build/${file}`);
+	staticRoutes[`/${file}`] = path.resolve(`dist/${file}`);
 })
 const defaultRoute = staticRoutes['/index.html'];
 

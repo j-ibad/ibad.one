@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "npm",
-			"script": "dev-win",
+			"script": "start",
 			"problemMatcher": [],
 			"label": "npm: start",
 			"detail": "npm run dev-win",
